@@ -1,0 +1,291 @@
+/* Color Palette & Variables */
+:root {
+    --bg-primary: #FAF9F6; /* Soft off-white */
+    --text-primary: #1C1C1C;
+    --text-muted: #6B6B6B;
+    --border-color: #E2E2E2;
+}
+
+/* Global Resets & Typography */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+}
+
+.brand-font {
+    font-family: 'Playfair Display', serif;
+}
+
+.py-section {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+}
+
+.bg-light-soft {
+    background-color: #ffffff;
+}
+
+.tracking-wide {
+    letter-spacing: 0.05em;
+}
+
+/* Navigation - Glassmorphism Effect */
+.navbar {
+    padding: 1.5rem 0;
+    background: transparent;
+    transition: all 0.4s ease-in-out;
+}
+
+.navbar.scrolled {
+    background: rgba(250, 249, 246, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.navbar-brand {
+    font-size: 1.75rem;
+    color: var(--text-primary) !important;
+}
+
+.nav-link {
+    color: var(--text-primary) !important;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: 1.5rem;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.6;
+}
+
+/* Hero Section */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    background: linear-gradient(rgba(250, 249, 246, 0.9), rgba(250, 249, 246, 0.9)), url('https://images.unsplash.com/photo-1441984904996-e0b6ba687e04?q=80&w=2000&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+}
+
+.btn-custom {
+    border-width: 1px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: var(--text-primary);
+    color: #fff;
+}
+
+/* Image Enhancements */
+.img-wrapper {
+    overflow: hidden;
+}
+
+.grayscale-hover {
+    filter: grayscale(30%);
+    transition: transform 0.8s ease, filter 0.8s ease;
+}
+
+.img-wrapper:hover .grayscale-hover {
+    transform: scale(1.05);
+    filter: grayscale(0%);
+}
+
+/* Collection Gallery */
+.collection-card {
+    height: 400px;
+    cursor: pointer;
+}
+
+.collection-card img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.collection-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(28, 28, 28, 0.4);
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.collection-card:hover img {
+    transform: scale(1.08);
+}
+
+.collection-card:hover .collection-overlay {
+    opacity: 1;
+    background: rgba(28, 28, 28, 0.7);
+}
+
+.collection-overlay h3 {
+    transform: translateY(20px);
+    transition: transform 0.4s ease;
+}
+
+.collection-card:hover h3 {
+    transform: translateY(0);
+}
+
+/* Editorial Form Design */
+.editorial-form .minimal-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--border-color);
+    border-radius: 0;
+    padding: 0.75rem 0;
+    font-size: 0.95rem;
+    box-shadow: none !important;
+    transition: border-color 0.3s ease;
+}
+
+.editorial-form .minimal-input:focus {
+    border-color: var(--text-primary);
+}
+
+.editorial-form .minimal-input::placeholder {
+    color: #999;
+    font-weight: 300;
+}
+
+/* Responsive Fixes */
+@media (max-width: 991px) {
+    .navbar { background: var(--bg-primary); }
+    .nav-link { margin-left: 0; padding: 0.75rem 0; }
+    .hero-section h1 { font-size: 3rem; }
+}
+/* =========================================
+   STYLISH IMAGE BOXES & BORDER RADIUS
+   ========================================= */
+
+/* Collections Card Styling */
+.collection-card {
+    border-radius: 20px !important; /* Premium rounded edges */
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08); /* Soft shadow */
+    height: 450px; /* Fixed height so all images look identical */
+}
+
+.collection-card img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* Ensures image doesn't stretch, it crops beautifully */
+    border-radius: 20px !important;
+}
+
+.collection-overlay {
+    border-radius: 20px !important;
+}
+
+/* B2B / Partner With Us Image Fix */
+#b2b img {
+    border-radius: 20px;
+    height: 450px; /* Restrict height so it matches collection boxes */
+    width: 100%;
+    object-fit: cover; /* Prevents awkward stretching */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4); /* Deep shadow for dark background */
+}
+
+/* =========================================
+   MOBILE RESPONSIVENESS ADJUSTMENTS
+   ========================================= */
+@media (max-width: 768px) {
+    /* Make the images slightly smaller on mobile for better fit */
+    .collection-card {
+        height: 380px; 
+        width: 90%; /* Leaves a small margin on sides */
+    }
+    
+    #b2b img {
+        height: 300px; /* Shorter on mobile so text is easily readable */
+        margin-top: 2rem;
+    }
+
+    /* Fix Carousel Arrows placement */
+    .carousel-control-prev {
+        left: -15px;
+    }
+    .carousel-control-next {
+        right: -15px;
+    }
+}
+/* =========================================
+   FACTORY IMAGES FIX (Prevent Shrinking)
+   ========================================= */
+
+#factory .img-wrapper {
+    border-radius: 16px; /* Halka sa stylish curve */
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05); /* Soft shadow */
+}
+
+/* Yeh line image ko pichakne (squish) hone se rokegi */
+#factory .img-wrapper img {
+    object-fit: cover !important; 
+    width: 100% !important;
+    height: 100% !important;
+}
+
+/* Mobile par factory images ka size set karne ke liye */
+@media (max-width: 768px) {
+    #factory .ratio-4x3, 
+    #factory .ratio-1x1 {
+        --bs-aspect-ratio: 80% !important; /* Mobile par perfect height */
+        margin-bottom: 15px; /* Dono images ke beech gap */
+    }
+}
+/* =========================================
+   FLOATING WHATSAPP BUTTON
+   ========================================= */
+
+.whatsapp-float {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 30px;
+    right: 30px;
+    background-color: #25D366; /* WhatsApp Official Green */
+    color: #FFF;
+    border-radius: 50%; /* Perfect Circle */
+    box-shadow: 0 6px 16px rgba(0,0,0,0.15); /* Soft premium shadow */
+    z-index: 1000; /* Ensures it stays on top of everything */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-5px); /* Bounces slightly up when hovered */
+    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4); /* Glow effect */
+    color: #FFF;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+    .whatsapp-float {
+        width: 55px;
+        height: 55px;
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .whatsapp-float svg {
+        width: 28px;
+        height: 28px;
+    }
+}
