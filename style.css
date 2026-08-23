@@ -2,14 +2,13 @@
    COLOR PALETTE & VARIABLES (Yezath Gold Theme)
    ========================================= */
 :root {
-    --bg-primary: #FAF9F6; /* Soft off-white */
+    --bg-primary: #FAF9F6;
     --text-primary: #1C1C1C;
     --text-muted: #6B6B6B;
     --border-color: #E2E2E2;
-    --gold-accent: #9f895b; /* Custom Luxury Gold */
+    --gold-accent: #9f895b;
 }
 
-/* Global Resets & Typography */
 body {
     font-family: 'Inter', sans-serif;
     background-color: var(--bg-primary);
@@ -24,38 +23,35 @@ body {
 }
 
 .py-section {
-    padding-top: 8rem;
-    padding-bottom: 8rem;
+    padding-top: 7rem;
+    padding-bottom: 7rem;
 }
 
 .bg-light-soft {
     background-color: #ffffff;
 }
 
-.tracking-wide {
-    letter-spacing: 0.05em;
-}
-
-/* Navigation - Glassmorphism Effect */
+/* Navbar & Brand Logo Styling (Larger Logo) */
 .navbar {
-    padding: 1.5rem 0;
+    padding: 1.2rem 0;
     background: transparent;
     transition: all 0.4s ease-in-out;
 }
 
 .navbar.scrolled {
-    background: rgba(250, 249, 246, 0.90);
+    background: rgba(250, 249, 246, 0.95);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    padding: 1rem 0;
+    padding: 0.8rem 0;
     border-bottom: 1px solid rgba(159, 137, 91, 0.2);
 }
 
-.navbar-brand {
-    font-size: 1.8rem;
-    font-family: 'Cinzel Decorative', serif;
-    color: var(--gold-accent) !important;
-    font-weight: 700;
+.brand-logo-img {
+    height: 62px !important;
+    width: 62px !important;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #9f895b;
 }
 
 .nav-link {
@@ -79,10 +75,6 @@ body {
     background-size: cover;
 }
 
-.hero-section h1 {
-    color: var(--text-primary);
-}
-
 .btn-custom {
     border-width: 1px;
     border-color: var(--text-primary);
@@ -98,114 +90,44 @@ body {
     color: #fff;
 }
 
-/* Image Enhancements */
-.img-wrapper {
-    overflow: hidden;
-}
-
-.grayscale-hover {
-    filter: grayscale(30%);
-    transition: transform 0.8s ease, filter 0.8s ease;
-}
-
-.img-wrapper:hover .grayscale-hover {
-    transform: scale(1.05);
-    filter: grayscale(0%);
+/* =========================================
+   SHOWCASE & FACTORY IMAGE CONTAINERS (No Crop Fix)
+   ========================================= */
+.showcase-wrapper img, 
+.factory-grid-box img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
 }
 
 /* =========================================
-   COLLECTION GALLERY & CARDS STYLING
+   COLLECTION CARDS (Catalog Images Fit)
    ========================================= */
 .collection-card {
-    border-radius: 20px !important;
+    border-radius: 16px !important;
     overflow: hidden;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    height: 450px;
-    cursor: pointer;
+    background-color: #0f172a;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    height: 480px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .collection-card img {
-    height: 100%;
+    max-height: 100%;
     width: 100%;
-    object-fit: cover;
-    border-radius: 20px !important;
-    transition: transform 0.6s ease;
-}
-
-.collection-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(28, 28, 28, 0.4);
-    opacity: 0;
-    transition: all 0.4s ease;
-    border-radius: 20px !important;
+    object-fit: contain;
+    border-radius: 16px !important;
+    transition: transform 0.5s ease;
 }
 
 .collection-card:hover img {
-    transform: scale(1.08);
+    transform: scale(1.03);
 }
 
-.collection-card:hover .collection-overlay {
-    opacity: 1;
-    background: rgba(28, 28, 28, 0.7);
-}
-
-.collection-overlay h3 {
-    transform: translateY(20px);
-    transition: transform 0.4s ease;
-}
-
-.collection-card:hover h3 {
-    transform: translateY(0);
-}
-
-/* Pagination Styling with Gold Theme */
-.page-link { 
-    color: var(--text-primary); 
-    border-color: #dee2e6; 
-}
-.page-item.active .page-link { 
-    background-color: var(--gold-accent); 
-    border-color: var(--gold-accent); 
-    color: #fff; 
-}
-.page-link:hover { 
-    background-color: #f0f2f5; 
-    color: var(--gold-accent); 
-}
-.carousel-indicators { 
-    position: relative; 
-    margin-top: 16px; 
-}
-
-/* B2B / Partner With Us Image Fix */
-#b2b img {
-    border-radius: 20px;
-    height: 450px;
-    width: 100%;
-    object-fit: cover;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-}
-
-/* =========================================
-   FACTORY IMAGES FIX
-   ========================================= */
-#factory .img-wrapper {
-    border-radius: 16px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-}
-
-#factory .img-wrapper img {
-    object-fit: cover !important; 
-    width: 100% !important;
-    height: 100% !important;
-}
-
-/* Editorial Form Design */
+/* Editorial Form */
 .editorial-form .minimal-input {
     background: transparent;
     border: none;
@@ -221,14 +143,7 @@ body {
     border-color: var(--gold-accent);
 }
 
-.editorial-form .minimal-input::placeholder {
-    color: #999;
-    font-weight: 300;
-}
-
-/* =========================================
-   FLOATING WHATSAPP BUTTON
-   ========================================= */
+/* Floating WhatsApp */
 .whatsapp-float {
     position: fixed;
     width: 60px;
@@ -243,54 +158,16 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    transition: transform 0.3s ease;
 }
 
 .whatsapp-float:hover {
     transform: scale(1.1) translateY(-5px);
-    box-shadow: 0 10px 20px rgba(37, 211, 102, 0.4);
     color: #FFF;
-}
-
-/* =========================================
-   MOBILE RESPONSIVENESS ADJUSTMENTS
-   ========================================= */
-@media (max-width: 991px) {
-    .navbar { background: var(--bg-primary); }
-    .nav-link { margin-left: 0; padding: 0.75rem 0; }
-    .hero-section h1 { font-size: 2.8rem; }
 }
 
 @media (max-width: 768px) {
     .collection-card {
-        height: 380px; 
-        width: 90%;
-        margin: 0 auto;
-    }
-    
-    #b2b img {
-        height: 300px;
-        margin-top: 2rem;
-    }
-
-    .carousel-control-prev { left: -15px; }
-    .carousel-control-next { right: -15px; }
-
-    #factory .ratio-4x3, 
-    #factory .ratio-1x1 {
-        --bs-aspect-ratio: 80% !important;
-        margin-bottom: 15px;
-    }
-
-    .whatsapp-float {
-        width: 55px;
-        height: 55px;
-        bottom: 20px;
-        right: 20px;
-    }
-    
-    .whatsapp-float svg {
-        width: 28px;
-        height: 28px;
+        height: 360px;
     }
 }
